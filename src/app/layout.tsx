@@ -1,10 +1,25 @@
 import type { Metadata } from 'next';
+import { Outfit, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import StickyMobileBar from '@/components/layout/StickyMobileBar';
 import SchemaOrg from '@/components/common/SchemaOrg';
 import { COMPANY_CONFIG } from '@/config/companyConfig';
+
+const outfit = Outfit({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-outfit',
+  weight: ['400', '500', '600', '700', '800', '900'],
+});
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-plus-jakarta',
+  weight: ['300', '400', '500', '600', '700', '800'],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(COMPANY_CONFIG.meta.siteUrl),
@@ -74,7 +89,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-CA">
+    <html lang="en-CA" className={`${outfit.variable} ${plusJakartaSans.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <SchemaOrg />

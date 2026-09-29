@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Phone, ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { Phone, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { COMPANY_CONFIG } from '@/config/companyConfig';
 
 interface LeadBannerCTAProps {

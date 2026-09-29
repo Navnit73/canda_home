@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { Send, UploadCloud, CheckCircle2, File, X, ShieldCheck } from 'lucide-react';
-import { COMPANY_CONFIG } from '@/config/companyConfig';
+import { SERVICES_DATA } from '@/config/companyConfig';
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -18,14 +18,14 @@ export default function ContactForm() {
   });
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
+    if (e.target.files && e.target.files.length > 0) {
       const fileNames = Array.from(e.target.files).map((f) => f.name);
-      setUploadedFiles([...uploadedFiles, ...fileNames]);
+      setUploadedFiles((prev) => [...prev, ...fileNames]);
     }
   };
 
   const removeFile = (index: number) => {
-    setUploadedFiles(uploadedFiles.filter((_, i) => i !== index));
+    setUploadedFiles((prev) => prev.filter((_, i) => i !== index));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -38,35 +38,40 @@ export default function ContactForm() {
       <div
         className="card"
         style={{
-          padding: '3rem 2rem',
+          padding: '3.5rem 2rem',
           textAlign: 'center',
           backgroundColor: '#FFFFFF',
+          boxShadow: 'var(--shadow-xl)',
         }}
       >
         <div
           style={{
-            width: '64px',
-            height: '64px',
+            width: '68px',
+            height: '68px',
             borderRadius: '50%',
             backgroundColor: 'var(--success-bg)',
             color: 'var(--success)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            margin: '0 auto 1.25rem auto',
+            margin: '0 auto 1.5rem auto',
+            boxShadow: '0 0 0 8px rgba(16, 185, 129, 0.15)',
           }}
         >
-          <CheckCircle2 size={38} />
+          <CheckCircle2 size={40} />
         </div>
-        <h3 style={{ fontSize: '1.6rem', marginBottom: '0.6rem', color: 'var(--text-dark)' }}>
-          Thanks! Your project request has been received.
+        <span className="badge badge-orange" style={{ marginBottom: '0.75rem' }}>
+          Message Sent Successfully
+        </span>
+        <h3 style={{ fontSize: '1.7rem', marginBottom: '0.75rem', color: 'var(--text-dark)' }}>
+          Thank you, {formData.name.split(' ')[0] || 'there'}!
         </h3>
-        <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', maxWidth: '460px', margin: '0 auto 1.5rem auto', lineHeight: 1.6 }}>
-          We will review your inquiry and contact you shortly to discuss your framing requirements.
+        <p style={{ color: 'var(--text-muted)', fontSize: '1rem', maxWidth: '480px', margin: '0 auto 2rem auto', lineHeight: 1.65 }}>
+          Our framing management team will review your message regarding your <strong>{formData.projectType}</strong> and get in touch with you shortly.
         </p>
         <button
           onClick={() => setSubmitted(false)}
-          className="btn btn-outline btn-sm"
+          className="btn btn-primary"
         >
           Send Another Message
         </button>
@@ -78,16 +83,23 @@ export default function ContactForm() {
     <div
       className="card"
       style={{
-        padding: 'clamp(1.25rem, 3.5vw, 2.5rem)',
+        padding: 'clamp(1.5rem, 4vw, 2.75rem)',
         backgroundColor: '#FFFFFF',
-        boxShadow: 'var(--shadow-lg)',
+        boxShadow: 'var(--shadow-xl)',
+        borderRadius: 'var(--radius-lg)',
       }}
     >
-      <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem', color: 'var(--text-dark)' }}>
-        Send Us a Message
-      </h3>
-      <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '1.75rem' }}>
-        Fill out the form below and we will get back to you promptly.
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+        <h3 style={{ fontSize: '1.55rem', color: 'var(--text-dark)', fontFamily: 'var(--font-heading)' }}>
+          Send Us a Project Message
+        </h3>
+        <span className="badge badge-orange">
+          24h Response
+        </span>
+      </div>
+
+      <p style={{ color: 'var(--text-muted)', fontSize: '0.925rem', marginBottom: '1.75rem' }}>
+        Fill out the details below and our estimating crew will get in touch promptly.
       </p>
 
       <form onSubmit={handleSubmit}>
@@ -97,7 +109,7 @@ export default function ContactForm() {
             type="text"
             required
             className="form-control"
-            placeholder="First and Last Name"
+            placeholder="e.g. David Miller"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           />
@@ -110,7 +122,7 @@ export default function ContactForm() {
               type="tel"
               required
               className="form-control"
-              placeholder="(403) 000-0000"
+              placeholder="e.g. (403) 555-0199"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
             />
@@ -121,7 +133,7 @@ export default function ContactForm() {
               type="email"
               required
               className="form-control"
-              placeholder="name@example.ca"
+              placeholder="e.g. david@example.ca"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             />
@@ -136,23 +148,20 @@ export default function ContactForm() {
               value={formData.projectType}
               onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
             >
-              <option value="New Home Framing">New Home Framing</option>
-              <option value="Custom Home Framing">Custom Home Framing</option>
-              <option value="Basement Framing">Basement Framing</option>
-              <option value="Garage Framing">Garage Framing</option>
-              <option value="Home Addition">Home Addition</option>
-              <option value="Renovation Framing">Renovation Framing</option>
-              <option value="Structural Framing">Structural Framing</option>
-              <option value="General Inquiry">General Inquiry</option>
+              {SERVICES_DATA.map((s) => (
+                <option key={s.slug} value={s.title}>{s.title}</option>
+              ))}
+              <option value="Multi-Family Framing">Multi-Family Framing</option>
+              <option value="General Inquiry">General Framing Inquiry</option>
             </select>
           </div>
           <div className="form-group">
-            <label className="form-label">Project Location / City *</label>
+            <label className="form-label">Project Location / Area *</label>
             <input
               type="text"
               required
               className="form-control"
-              placeholder="e.g. Calgary SW, Cochrane, Airdrie"
+              placeholder="e.g. Altadore, Cochrane, Airdrie"
               value={formData.location}
               onChange={(e) => setFormData({ ...formData, location: e.target.value })}
             />
@@ -160,17 +169,18 @@ export default function ContactForm() {
         </div>
 
         <div className="form-group">
-          <label className="form-label">Message / Project Details</label>
+          <label className="form-label">Message / Framing Scope Notes</label>
           <textarea
             className="form-control"
-            placeholder="Please share details regarding your timeline, square footage, or any specific questions..."
+            placeholder="Please share details regarding your timeline, square footage, architectural plan status, or questions..."
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+            style={{ minHeight: '110px' }}
           />
         </div>
 
         <div className="form-group" style={{ marginBottom: '1.5rem' }}>
-          <label className="form-label">Attach Plans / Drawings (Optional)</label>
+          <label className="form-label">Attach Blueprints or Drawings (Optional)</label>
           <div className="upload-zone" style={{ position: 'relative', padding: '1.5rem 1rem' }}>
             <input
               type="file"
@@ -187,12 +197,12 @@ export default function ContactForm() {
                 cursor: 'pointer',
               }}
             />
-            <UploadCloud size={28} color="var(--accent-primary)" style={{ margin: '0 auto 0.4rem auto' }} />
-            <div style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-dark)' }}>
+            <UploadCloud size={30} color="var(--accent-primary)" style={{ margin: '0 auto 0.4rem auto' }} />
+            <div style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--text-dark)' }}>
               Upload Blueprints or Site Sketches
             </div>
-            <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-              PDF, DWG, PNG, or JPG formats
+            <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
+              Supports PDF, DWG, PNG, or JPG formats
             </div>
           </div>
 
@@ -206,13 +216,13 @@ export default function ContactForm() {
                     alignItems: 'center',
                     justifyContent: 'space-between',
                     backgroundColor: 'var(--bg-subtle)',
-                    padding: '0.45rem 0.75rem',
+                    padding: '0.5rem 0.85rem',
                     borderRadius: 'var(--radius-sm)',
-                    fontSize: '0.8rem',
+                    fontSize: '0.825rem',
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                    <File size={14} color="var(--accent-primary)" />
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+                    <File size={15} color="var(--accent-primary)" />
                     <span>{file}</span>
                   </div>
                   <button
@@ -220,7 +230,7 @@ export default function ContactForm() {
                     onClick={() => removeFile(idx)}
                     style={{ background: 'none', border: 'none', color: '#EF4444', cursor: 'pointer' }}
                   >
-                    <X size={14} />
+                    <X size={15} />
                   </button>
                 </div>
               ))}
@@ -228,15 +238,15 @@ export default function ContactForm() {
           )}
         </div>
 
-        <div className="form-group" style={{ marginBottom: '1.5rem' }}>
+        <div className="form-group" style={{ marginBottom: '1.75rem' }}>
           <label className="form-label">Preferred Contact Method</label>
-          <div style={{ display: 'flex', gap: '1.5rem', marginTop: '0.35rem' }}>
+          <div style={{ display: 'flex', gap: '1.5rem', marginTop: '0.35rem', flexWrap: 'wrap' }}>
             {[
-              { id: 'phone', label: 'Phone' },
+              { id: 'phone', label: 'Phone Call' },
               { id: 'email', label: 'Email' },
               { id: 'text', label: 'Text Message' },
             ].map((m) => (
-              <label key={m.id} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', cursor: 'pointer', fontSize: '0.875rem' }}>
+              <label key={m.id} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', cursor: 'pointer', fontSize: '0.875rem' }}>
                 <input
                   type="radio"
                   name="contactMethod"
@@ -251,12 +261,12 @@ export default function ContactForm() {
 
         <button type="submit" className="btn btn-primary btn-lg btn-block">
           <Send size={18} />
-          <span>Request a Quote</span>
+          <span>Submit Project Inquiry</span>
         </button>
 
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem', marginTop: '1rem', fontSize: '0.78rem', color: 'var(--text-muted)' }}>
-          <ShieldCheck size={14} color="var(--accent-primary)" />
-          <span>We respect your privacy. No spam.</span>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.45rem', marginTop: '1.15rem', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+          <ShieldCheck size={16} color="var(--success)" />
+          <span>100% Confidential & Secure • No Spam Guarantee</span>
         </div>
       </form>
     </div>

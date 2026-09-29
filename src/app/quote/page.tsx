@@ -1,6 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { ShieldCheck, CheckCircle2, Phone, Clock, FileText } from 'lucide-react';
+import { CheckCircle2, Clock, FileText } from 'lucide-react';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import MultiStepQuoteWizard from '@/components/forms/MultiStepQuoteWizard';
 import { COMPANY_CONFIG } from '@/config/companyConfig';
@@ -26,7 +26,7 @@ export default function QuotePage() {
             Request Your Framing Quote
           </h1>
           <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', maxWidth: '680px', margin: '0 auto', lineHeight: 1.6 }}>
-            Complete the 5 quick steps below to send us your project specs and blueprint files for a detailed, itemized framing takeoff.
+            Complete the 3 quick steps below to send us your project scope and blueprint files for a detailed, itemized framing takeoff.
           </p>
 
           <div

@@ -1,11 +1,8 @@
 import React from 'react';
-import Link from 'next/link';
 import { Metadata } from 'next';
-import { MapPin, ArrowRight, CheckCircle2 } from 'lucide-react';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import LeadBannerCTA from '@/components/common/LeadBannerCTA';
 import AreasSection from '@/components/home/AreasSection';
-import { SERVICE_AREAS_DATA, COMPANY_CONFIG } from '@/config/companyConfig';
 
 export const metadata: Metadata = {
   title: 'Service Areas | Residential Framing Contractor Calgary & Region',

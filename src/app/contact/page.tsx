@@ -1,10 +1,10 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { Phone, Mail, MapPin, Clock, HardHat, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import ContactForm from '@/components/forms/ContactForm';
 import SchemaOrg from '@/components/common/SchemaOrg';
-import { COMPANY_CONFIG, SERVICE_AREAS_DATA } from '@/config/companyConfig';
+import { COMPANY_CONFIG } from '@/config/companyConfig';
 
 export const metadata: Metadata = {
   title: 'Contact Us | Request a Residential Framing Quote Calgary',
@@ -20,7 +20,7 @@ export default function ContactPage() {
       <SchemaOrg
         type="LocalBusiness"
         title="Contact Us"
-        description="Contact our Calgary home framing contractor team."
+        description="Contact Calgary Home Framing contractor team."
         url="https://calgaryhomeframing.ca/contact"
       />
 
@@ -28,11 +28,11 @@ export default function ContactPage() {
         <div className="container">
           <Breadcrumbs items={[{ label: 'Contact Us' }]} />
           <span className="section-tag">Direct Communication</span>
-          <h1 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', marginTop: '0.5rem', marginBottom: '1rem' }}>
+          <h1 style={{ fontSize: 'clamp(2.2rem, 4.2vw, 3.25rem)', marginTop: '0.5rem', marginBottom: '1rem' }}>
             Get in Touch With Our Calgary Framing Team
           </h1>
-          <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', maxWidth: '780px', lineHeight: 1.6 }}>
-            Ready to discuss your new build, custom home, garage, or basement framing requirements? We are here to answer questions and review your blueprints.
+          <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', maxWidth: '800px', lineHeight: 1.65 }}>
+            Ready to discuss your new home, custom build, detached garage, or basement framing requirements? We are here to answer questions, review your blueprints, and provide an accurate takeoff.
           </p>
         </div>
       </section>
@@ -45,59 +45,59 @@ export default function ContactPage() {
               <ContactForm />
             </div>
 
-            {/* Direct Info & Map Simulation */}
+            {/* Direct Info & Coverage Overview */}
             <div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>
                 {/* Contact Details Card */}
-                <div className="card" style={{ padding: '2rem', backgroundColor: 'var(--bg-light)' }}>
-                  <h3 style={{ fontSize: '1.25rem', marginBottom: '1.25rem', color: 'var(--text-dark)' }}>
-                    Direct Contact Information
+                <div className="card" style={{ padding: '2.25rem', backgroundColor: 'var(--bg-light)', border: '1px solid var(--border-light)' }}>
+                  <h3 style={{ fontSize: '1.3rem', marginBottom: '1.5rem', color: 'var(--text-dark)' }}>
+                    Direct Contact Details
                   </h3>
 
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                    <div style={{ display: 'flex', gap: '0.85rem' }}>
-                      <div style={{ width: '38px', height: '38px', borderRadius: '6px', backgroundColor: 'var(--accent-primary-subtle)', color: 'var(--accent-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                        <Phone size={18} />
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1.35rem' }}>
+                    <div style={{ display: 'flex', gap: '0.9rem' }}>
+                      <div style={{ width: '42px', height: '42px', borderRadius: '8px', backgroundColor: 'var(--accent-primary-subtle)', color: 'var(--accent-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                        <Phone size={20} />
                       </div>
                       <div>
-                        <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Phone</div>
-                        <a href={`tel:${COMPANY_CONFIG.phoneRaw}`} style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-dark)' }}>
+                        <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700 }}>Direct Line</div>
+                        <a href={`tel:${COMPANY_CONFIG.phoneRaw}`} style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-dark)' }}>
                           {COMPANY_CONFIG.phone}
                         </a>
                       </div>
                     </div>
 
-                    <div style={{ display: 'flex', gap: '0.85rem' }}>
-                      <div style={{ width: '38px', height: '38px', borderRadius: '6px', backgroundColor: 'var(--accent-primary-subtle)', color: 'var(--accent-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                        <Mail size={18} />
+                    <div style={{ display: 'flex', gap: '0.9rem' }}>
+                      <div style={{ width: '42px', height: '42px', borderRadius: '8px', backgroundColor: 'var(--accent-primary-subtle)', color: 'var(--accent-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                        <Mail size={20} />
                       </div>
                       <div>
-                        <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Email</div>
+                        <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700 }}>Email Address</div>
                         <a href={`mailto:${COMPANY_CONFIG.email}`} style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--text-dark)' }}>
                           {COMPANY_CONFIG.email}
                         </a>
                       </div>
                     </div>
 
-                    <div style={{ display: 'flex', gap: '0.85rem' }}>
-                      <div style={{ width: '38px', height: '38px', borderRadius: '6px', backgroundColor: 'var(--accent-primary-subtle)', color: 'var(--accent-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                        <MapPin size={18} />
+                    <div style={{ display: 'flex', gap: '0.9rem' }}>
+                      <div style={{ width: '42px', height: '42px', borderRadius: '8px', backgroundColor: 'var(--accent-primary-subtle)', color: 'var(--accent-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                        <MapPin size={20} />
                       </div>
                       <div>
-                        <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Service Area</div>
-                        <div style={{ fontSize: '0.9rem', color: 'var(--text-dark)', fontWeight: 600 }}>
-                          Calgary, Alberta and surrounding communities
+                        <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700 }}>Service Region</div>
+                        <div style={{ fontSize: '0.925rem', color: 'var(--text-dark)', fontWeight: 600 }}>
+                          Calgary, Airdrie, Cochrane, Chestermere, Okotoks & Foothills
                         </div>
                       </div>
                     </div>
 
-                    <div style={{ display: 'flex', gap: '0.85rem' }}>
-                      <div style={{ width: '38px', height: '38px', borderRadius: '6px', backgroundColor: 'var(--accent-primary-subtle)', color: 'var(--accent-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                        <Clock size={18} />
+                    <div style={{ display: 'flex', gap: '0.9rem' }}>
+                      <div style={{ width: '42px', height: '42px', borderRadius: '8px', backgroundColor: 'var(--accent-primary-subtle)', color: 'var(--accent-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                        <Clock size={20} />
                       </div>
                       <div>
-                        <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Hours</div>
-                        <div style={{ fontSize: '0.85rem', color: 'var(--text-dark-secondary)' }}>
+                        <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700 }}>Operating Hours</div>
+                        <div style={{ fontSize: '0.875rem', color: 'var(--text-dark-secondary)' }}>
                           {COMPANY_CONFIG.hours}
                         </div>
                       </div>
@@ -105,39 +105,47 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                {/* Regional Map Coverage Simulation Card */}
-                <div className="card" style={{ padding: '2rem', backgroundColor: '#0D1117', color: '#FFFFFF', border: '1px solid #1F2633' }}>
+                {/* Regional Coverage Card */}
+                <div className="card" style={{ padding: '2.25rem', backgroundColor: '#0A0E17', color: '#FFFFFF', border: '1px solid #1E293B' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-primary)', marginBottom: '0.5rem' }}>
                     <MapPin size={18} />
-                    <span style={{ fontWeight: 700, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                      Regional Coverage Map
+                    <span style={{ fontWeight: 700, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                      Regional Coverage
                     </span>
                   </div>
 
-                  <h4 style={{ color: '#FFFFFF', fontSize: '1.2rem', marginBottom: '0.75rem' }}>
-                    Calgary Metropolitan Area
+                  <h4 style={{ color: '#FFFFFF', fontSize: '1.25rem', marginBottom: '0.75rem' }}>
+                    Active Framing Crews in Calgary
                   </h4>
 
-                  <p style={{ fontSize: '0.85rem', color: '#94A3B8', lineHeight: 1.6, marginBottom: '1.25rem' }}>
-                    [Contractor map locator: Serving Calgary, Airdrie, Cochrane, Chestermere, Okotoks, Bearspaw, Springbank, and Foothills County.]
+                  <p style={{ fontSize: '0.875rem', color: '#94A3B8', lineHeight: 1.6, marginBottom: '1.5rem' }}>
+                    We deploy dedicated residential framing crews across all Calgary quadrants and surrounding municipality building jurisdictions.
                   </p>
 
-                  <div style={{ backgroundColor: '#161B22', border: '1px solid #262F3E', borderRadius: 'var(--radius-sm)', padding: '1rem', display: 'flex', flexDirection: 'column', gap: '0.4rem', fontSize: '0.8125rem', color: '#CBD5E1' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                      <span>• NW Calgary / Bearspaw</span>
-                      <span style={{ color: 'var(--success)' }}>Active Coverage</span>
+                  <div style={{ backgroundColor: '#111726', border: '1px solid #1E293B', borderRadius: 'var(--radius-sm)', padding: '1.15rem', display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.85rem', color: '#CBD5E1' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <span>• NW Calgary / Bearspaw / Sunset</span>
+                      <span style={{ color: 'var(--success)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <span className="live-dot" style={{ width: '6px', height: '6px' }} /> Active
+                      </span>
                     </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                      <span>• SW Calgary / Springbank</span>
-                      <span style={{ color: 'var(--success)' }}>Active Coverage</span>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <span>• SW Calgary / Springbank / Altadore</span>
+                      <span style={{ color: 'var(--success)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <span className="live-dot" style={{ width: '6px', height: '6px' }} /> Active
+                      </span>
                     </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                      <span>• SE & NE Calgary</span>
-                      <span style={{ color: 'var(--success)' }}>Active Coverage</span>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <span>• SE & NE Calgary / Mahogany / Seton</span>
+                      <span style={{ color: 'var(--success)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <span className="live-dot" style={{ width: '6px', height: '6px' }} /> Active
+                      </span>
                     </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                      <span>• Airdrie / Cochrane / Okotoks</span>
-                      <span style={{ color: 'var(--success)' }}>Active Coverage</span>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <span>• Airdrie / Cochrane / Okotoks / Chestermere</span>
+                      <span style={{ color: 'var(--success)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <span className="live-dot" style={{ width: '6px', height: '6px' }} /> Active
+                      </span>
                     </div>
                   </div>
                 </div>

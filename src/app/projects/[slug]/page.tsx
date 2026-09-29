@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
-import { MapPin, ArrowRight, CheckCircle2, ShieldAlert, Sparkles, Building, Calendar } from 'lucide-react';
+import { MapPin, ArrowRight, CheckCircle2, ShieldAlert, Sparkles } from 'lucide-react';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import LeadBannerCTA from '@/components/common/LeadBannerCTA';
 import SchemaOrg from '@/components/common/SchemaOrg';

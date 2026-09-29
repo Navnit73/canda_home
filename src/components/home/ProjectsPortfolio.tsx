@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, MapPin, Tag } from 'lucide-react';
+import { ArrowRight, MapPin } from 'lucide-react';
 import { PROJECTS_DATA } from '@/config/companyConfig';
 
 export default function ProjectsPortfolio() {
@@ -110,7 +110,7 @@ export default function ProjectsPortfolio() {
                   </p>
                 </div>
 
-                <div style={{ paddingTop: '1.25rem', borderTop: '1px solid var(--border-light)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <div style={{ paddingTop: '1.25rem', borderTop: '1px solid var(--border-light)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem' }}>
                   <Link
                     href={`/projects/${project.slug}`}
                     className="btn btn-outline btn-sm"

@@ -3,7 +3,6 @@ import { Metadata } from 'next';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import LeadBannerCTA from '@/components/common/LeadBannerCTA';
 import ProjectsPortfolio from '@/components/home/ProjectsPortfolio';
-import { COMPANY_CONFIG } from '@/config/companyConfig';
 
 export const metadata: Metadata = {
   title: 'Recent Home Framing Projects Calgary | Construction Portfolio',

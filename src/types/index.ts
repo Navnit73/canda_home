@@ -67,3 +67,15 @@ export interface StepQuoteData {
   projectDetails: string;
   squareFootage?: string;
 }
+
+export interface TestimonialItem {
+  id: string;
+  author: string;
+  role: string;
+  location: string;
+  projectType: string;
+  quote: string;
+  rating: number;
+  highlight: string;
+}
+

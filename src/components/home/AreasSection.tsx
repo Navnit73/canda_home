@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { MapPin, ArrowRight, Check } from 'lucide-react';
+import { MapPin, ArrowRight } from 'lucide-react';
 import { SERVICE_AREAS_DATA } from '@/config/companyConfig';
 
 export default function AreasSection() {

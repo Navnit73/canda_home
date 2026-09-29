@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Send, CheckCircle2, FileText, Phone } from 'lucide-react';
-import { COMPANY_CONFIG } from '@/config/companyConfig';
+import { Send, CheckCircle2, FileText } from 'lucide-react';
+import { COMPANY_CONFIG, SERVICES_DATA } from '@/config/companyConfig';
 
 export default function HeroQuoteCard() {
   const [submitted, setSubmitted] = useState(false);
@@ -22,11 +22,11 @@ export default function HeroQuoteCard() {
 
   if (submitted) {
     return (
-      <div className="hero-quote-card" style={{ textAlign: 'center', padding: '2.5rem 1.5rem' }}>
+      <div className="hero-quote-card" style={{ textAlign: 'center', padding: '2.5rem 1.75rem' }}>
         <div
           style={{
-            width: '56px',
-            height: '56px',
+            width: '60px',
+            height: '60px',
             borderRadius: '50%',
             backgroundColor: 'var(--success-bg)',
             color: 'var(--success)',
@@ -34,15 +34,19 @@ export default function HeroQuoteCard() {
             alignItems: 'center',
             justifyContent: 'center',
             margin: '0 auto 1.25rem auto',
+            boxShadow: '0 0 0 6px rgba(16, 185, 129, 0.15)',
           }}
         >
-          <CheckCircle2 size={32} />
+          <CheckCircle2 size={34} />
         </div>
-        <h3 style={{ fontSize: '1.35rem', marginBottom: '0.5rem', color: 'var(--text-dark)' }}>
-          Thanks! Your project request has been received.
+        <span className="badge badge-orange" style={{ marginBottom: '0.5rem' }}>
+          Request Received
+        </span>
+        <h3 style={{ fontSize: '1.4rem', marginBottom: '0.5rem', color: 'var(--text-dark)' }}>
+          Thank you, {formData.name.split(' ')[0] || 'there'}!
         </h3>
-        <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
-          We will contact you shortly to review your blueprints and framing requirements.
+        <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '1.5rem', lineHeight: 1.6 }}>
+          We will review your <strong>{formData.projectType}</strong> project in <strong>{formData.projectLocation || 'Calgary'}</strong> and contact you within 24 hours with an itemized takeoff.
         </p>
         <button
           onClick={() => setSubmitted(false)}
@@ -58,24 +62,44 @@ export default function HeroQuoteCard() {
     <div className="hero-quote-card">
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
         <div>
-          <span className="badge badge-orange" style={{ marginBottom: '0.4rem' }}>
-            Fast Estimates
-          </span>
-          <h3 style={{ fontSize: '1.35rem', color: 'var(--text-dark)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.3rem' }}>
+            <span className="badge badge-orange">
+              Fast 24-Hr Takeoffs
+            </span>
+            <span className="badge badge-live">
+              <span className="live-dot" style={{ width: '6px', height: '6px' }} />
+              <span>Available</span>
+            </span>
+          </div>
+          <h3 style={{ fontSize: '1.4rem', color: 'var(--text-dark)', fontFamily: 'var(--font-heading)' }}>
             Request a Framing Quote
           </h3>
         </div>
-        <FileText size={28} color="var(--accent-primary)" />
+        <div
+          style={{
+            width: '42px',
+            height: '42px',
+            borderRadius: '10px',
+            backgroundColor: 'var(--accent-primary-subtle)',
+            color: 'var(--accent-primary)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexShrink: 0,
+          }}
+        >
+          <FileText size={22} />
+        </div>
       </div>
 
       <form onSubmit={handleSubmit}>
         <div className="form-group" style={{ marginBottom: '0.85rem' }}>
-          <label className="form-label" style={{ fontSize: '0.8125rem' }}>Your Name *</label>
+          <label className="form-label" style={{ fontSize: '0.8125rem' }}>Full Name *</label>
           <input
             type="text"
             required
             className="form-control"
-            style={{ padding: '0.65rem 0.85rem', fontSize: '0.9rem' }}
+            style={{ padding: '0.7rem 0.9rem', fontSize: '0.9rem' }}
             placeholder="First and Last Name"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -89,7 +113,7 @@ export default function HeroQuoteCard() {
               type="tel"
               required
               className="form-control"
-              style={{ padding: '0.65rem 0.85rem', fontSize: '0.9rem' }}
+              style={{ padding: '0.7rem 0.9rem', fontSize: '0.9rem' }}
               placeholder="(403) 000-0000"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -102,7 +126,7 @@ export default function HeroQuoteCard() {
               type="email"
               required
               className="form-control"
-              style={{ padding: '0.65rem 0.85rem', fontSize: '0.9rem' }}
+              style={{ padding: '0.7rem 0.9rem', fontSize: '0.9rem' }}
               placeholder="name@email.ca"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -115,17 +139,15 @@ export default function HeroQuoteCard() {
             <label className="form-label" style={{ fontSize: '0.8125rem' }}>Project Type *</label>
             <select
               className="form-control form-select"
-              style={{ padding: '0.65rem 0.85rem', fontSize: '0.9rem' }}
+              style={{ padding: '0.7rem 0.9rem', fontSize: '0.9rem' }}
               value={formData.projectType}
               onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
             >
-              <option value="New Home Framing">New Home Framing</option>
-              <option value="Custom Home Framing">Custom Home Framing</option>
-              <option value="Basement Framing">Basement Framing</option>
-              <option value="Garage Framing">Garage Framing</option>
-              <option value="Home Addition">Home Addition</option>
-              <option value="Renovation Framing">Renovation Framing</option>
-              <option value="Structural Framing">Structural Framing</option>
+              {SERVICES_DATA.map((s) => (
+                <option key={s.slug} value={s.title}>{s.title}</option>
+              ))}
+              <option value="Multi-Family Framing">Multi-Family Framing</option>
+              <option value="Other Project">Other Custom Project</option>
             </select>
           </div>
 
@@ -135,34 +157,34 @@ export default function HeroQuoteCard() {
               type="text"
               required
               className="form-control"
-              style={{ padding: '0.65rem 0.85rem', fontSize: '0.9rem' }}
-              placeholder="e.g. Calgary NW, Airdrie"
+              style={{ padding: '0.7rem 0.9rem', fontSize: '0.9rem' }}
+              placeholder="e.g. Altadore, Cochrane, Airdrie"
               value={formData.projectLocation}
               onChange={(e) => setFormData({ ...formData, projectLocation: e.target.value })}
             />
           </div>
         </div>
 
-        <div className="form-group" style={{ marginBottom: '1rem' }}>
-          <label className="form-label" style={{ fontSize: '0.8125rem' }}>Project Notes (Optional)</label>
+        <div className="form-group" style={{ marginBottom: '1.15rem' }}>
+          <label className="form-label" style={{ fontSize: '0.8125rem' }}>Project Scope Notes (Optional)</label>
           <input
             type="text"
             className="form-control"
-            style={{ padding: '0.65rem 0.85rem', fontSize: '0.9rem' }}
+            style={{ padding: '0.7rem 0.9rem', fontSize: '0.9rem' }}
             placeholder="Target start date, square footage, plans status..."
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
           />
         </div>
 
-        <button type="submit" className="btn btn-primary btn-block" style={{ padding: '0.85rem' }}>
+        <button type="submit" className="btn btn-primary btn-block" style={{ padding: '0.9rem' }}>
           <Send size={16} />
-          <span>Request My Quote</span>
+          <span>Request My Free Quote</span>
         </button>
 
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem', marginTop: '0.85rem', fontSize: '0.78rem', color: 'var(--text-muted)' }}>
-          <span>Prefer to talk?</span>
-          <a href={`tel:${COMPANY_CONFIG.phoneRaw}`} style={{ color: 'var(--accent-primary)', fontWeight: 600 }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem', marginTop: '0.95rem', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+          <span>Prefer direct dispatch?</span>
+          <a href={`tel:${COMPANY_CONFIG.phoneRaw}`} style={{ color: 'var(--accent-primary)', fontWeight: 700 }}>
             Call {COMPANY_CONFIG.phone}
           </a>
         </div>

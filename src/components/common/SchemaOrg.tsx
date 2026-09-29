@@ -20,9 +20,9 @@ export default function SchemaOrg({
 }: SchemaOrgProps) {
   const baseSchema = {
     '@context': 'https://schema.org',
-    '@type': 'HomeAndConstructionBusiness',
+    '@type': type === 'Service' ? 'Service' : 'HomeAndConstructionBusiness',
     '@id': `${COMPANY_CONFIG.meta.siteUrl}/#contractor`,
-    name: COMPANY_CONFIG.name,
+    name: title || COMPANY_CONFIG.name,
     legalName: COMPANY_CONFIG.legalName,
     url: url || COMPANY_CONFIG.meta.siteUrl,
     telephone: COMPANY_CONFIG.phone,

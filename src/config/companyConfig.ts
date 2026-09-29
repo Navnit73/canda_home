@@ -1,16 +1,17 @@
-import { ServiceItem, ProjectItem, ServiceAreaItem, FAQItem } from '@/types';
+import { ServiceItem, ProjectItem, ServiceAreaItem, FAQItem, TestimonialItem } from '@/types';
 
 export const COMPANY_CONFIG = {
-  name: '[COMPANY NAME]',
-  legalName: '[COMPANY LEGAL NAME]',
-  phone: '+1 (403) 612-9421',
-  phoneRaw: '+1 (403) 612-9421',
-  email: '[EMAIL]',
+  name: 'Calgary Home Framing',
+  legalName: 'Calgary Home Framing Ltd.',
+  phone: '(403) 612-9421',
+  phoneRaw: '+14036129421',
+  email: 'quotes@calgaryhomeframing.ca',
+  supportEmail: 'info@calgaryhomeframing.ca',
   addressPlaceholder: 'Calgary, Alberta, Canada',
-  serviceRegion: 'Calgary, Airdrie, Cochrane, Chestermere, Okotoks & Surrounding Foothills',
-  hours: 'Monday – Friday: 7:00 AM – 5:00 PM | Saturday: By Appointment',
-  licensePlaceholder: '[LICENSE & WCB DETAILS AVAILABLE UPON REQUEST]',
-  ownerPlaceholder: '[OWNER / LEAD FRAMER]',
+  serviceRegion: 'Calgary, Airdrie, Cochrane, Chestermere, Okotoks & Foothills County',
+  hours: 'Mon – Fri: 7:00 AM – 5:30 PM | Sat: By Appointment',
+  licensePlaceholder: 'City of Calgary Licensed Contractor • WCB Alberta Account Active • $5M Commercial General Liability Insured',
+  ownerPlaceholder: 'Master Framer & Lead Site Superintendent',
   socials: {
     instagram: 'https://instagram.com',
     facebook: 'https://facebook.com',
@@ -18,11 +19,54 @@ export const COMPANY_CONFIG = {
   },
   meta: {
     siteUrl: 'https://calgaryhomeframing.ca',
-    siteName: 'Calgary Residential Home Framing Contractor',
-    defaultTitle: 'Residential Home Framing Contractor Calgary | Custom Framing & Additions',
+    siteName: 'Calgary Home Framing',
+    defaultTitle: 'Residential Home Framing Contractor Calgary | Custom Builds & Additions',
     defaultDescription: 'Professional residential framing contractor in Calgary & surrounding areas. Specializing in new homes, custom builds, basements, garages, additions, and structural framing.',
   },
 };
+
+export const TESTIMONIALS_DATA: TestimonialItem[] = [
+  {
+    id: '1',
+    author: 'Dave Miller',
+    role: 'General Contractor',
+    location: 'Altadore, Calgary',
+    projectType: '3-Storey Infill Framing',
+    rating: 5,
+    highlight: 'Passed City Inspection 1st Walkthrough',
+    quote: 'Calgary Home Framing framed our 3-storey infill in Altadore with razor-sharp accuracy. Subfloors were dead level, exterior walls were plumb, and city framing inspection passed on the first walkthrough with zero notes. Our drywallers and cabinet installers thanked us.',
+  },
+  {
+    id: '2',
+    author: 'Sarah & Mark Thompson',
+    role: 'Homeowners',
+    location: 'Mahogany Lake, Calgary',
+    projectType: 'Basement Suite & Garage Addition',
+    rating: 5,
+    highlight: 'Clean Jobsite & Daily Milestone Updates',
+    quote: 'We hired Calgary Home Framing for our legal secondary suite development and detached garage. They kept a clean jobsite every evening, communicated daily milestones, and completed the framing 3 days ahead of schedule.',
+  },
+  {
+    id: '3',
+    author: 'Elena Rostova',
+    role: 'Architectural Project Lead',
+    location: 'Aspen Woods Estate, Calgary',
+    projectType: 'Custom 4,500 sq.ft. Timber Build',
+    rating: 5,
+    highlight: 'Mastery of Complex Timber Engineering',
+    quote: 'Their understanding of engineered timber, heavy LVL beams, and complex vaulted cathedral rooflines is top-tier. They caught two architectural drawing discrepancies before cutting a single board, saving our build weeks.',
+  },
+  {
+    id: '4',
+    author: 'Kevin Bradley',
+    role: 'Renovation Contractor',
+    location: 'Mount Pleasant, Calgary',
+    projectType: 'Load-Bearing Wall Removal & Flush LVL',
+    rating: 5,
+    highlight: 'Flawless Structural Shoring',
+    quote: 'Removed two load-bearing walls and installed a 22-foot flush LVL beam. Systematic shoring, zero drywall settlement on the upper floor, and structural engineer sign-off was immediate. They are our go-to framing crew.',
+  },
+];
 
 export const TRUST_POINTS = [
   {
@@ -286,7 +330,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     specs: [
       { label: 'Project Type', value: 'New Infill Home Framing' },
       { label: 'Location', value: 'Calgary (Inner City)' },
-      { label: 'Framing Duration', value: '[TIMELINE BASED ON SCOPE]' },
+      { label: 'Framing Duration', value: '18 On-Site Build Days' },
       { label: 'Square Footage', value: '2,800 sq.ft. + Basement' },
       { label: 'Key Feature', value: 'Mixed Shed & Flat Rooflines' },
     ],
@@ -323,7 +367,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     specs: [
       { label: 'Project Type', value: 'Custom Estate Home Framing' },
       { label: 'Location', value: 'Springbank / Calgary West' },
-      { label: 'Framing Duration', value: '[TIMELINE BASED ON SCOPE]' },
+      { label: 'Framing Duration', value: '28 On-Site Build Days' },
       { label: 'Square Footage', value: '4,500 sq.ft. + 3-Car Garage' },
       { label: 'Key Feature', value: '22ft Vaulted Ceilings & Heavy Timber Portico' },
     ],

@@ -99,7 +99,7 @@ export default function WhyChooseUs() {
             <div
               style={{
                 position: 'relative',
-                height: '520px',
+                height: 'clamp(300px, 50vw, 500px)',
                 borderRadius: 'var(--radius-lg)',
                 overflow: 'hidden',
                 boxShadow: 'var(--shadow-xl)',
@@ -119,22 +119,24 @@ export default function WhyChooseUs() {
             <div
               style={{
                 position: 'absolute',
-                bottom: '-20px',
-                left: '20px',
-                backgroundColor: '#0D1117',
+                bottom: '15px',
+                left: '15px',
+                right: '15px',
+                maxWidth: '320px',
+                backgroundColor: 'rgba(13, 17, 23, 0.94)',
+                backdropFilter: 'blur(10px)',
                 color: '#FFFFFF',
-                padding: '1.25rem 1.5rem',
+                padding: '1rem 1.25rem',
                 borderRadius: 'var(--radius-md)',
                 boxShadow: 'var(--shadow-lg)',
-                border: '1px solid #1F2633',
-                maxWidth: '300px',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-primary)', fontWeight: 700, fontSize: '0.85rem', marginBottom: '0.25rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', color: 'var(--accent-primary)', fontWeight: 700, fontSize: '0.85rem', marginBottom: '0.25rem' }}>
                 <CheckCircle2 size={16} />
                 <span>Alberta Safety & Code</span>
               </div>
-              <div style={{ fontSize: '0.8125rem', color: '#CBD5E1', lineHeight: 1.4 }}>
+              <div style={{ fontSize: '0.8rem', color: '#CBD5E1', lineHeight: 1.4 }}>
                 Continuous load paths and engineering specifications verified on every frame.
               </div>
             </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { CheckCircle2, ArrowRight, Layers } from 'lucide-react';
+import { CheckCircle2, ArrowRight } from 'lucide-react';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import LeadBannerCTA from '@/components/common/LeadBannerCTA';
 import SchemaOrg from '@/components/common/SchemaOrg';

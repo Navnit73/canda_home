@@ -2,10 +2,10 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Metadata } from 'next';
-import { ArrowRight, Check, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import LeadBannerCTA from '@/components/common/LeadBannerCTA';
-import { SERVICES_DATA, COMPANY_CONFIG } from '@/config/companyConfig';
+import { SERVICES_DATA } from '@/config/companyConfig';
 
 export const metadata: Metadata = {
   title: 'Residential Framing Services Calgary | Wood Framing Contractors',
@@ -52,11 +52,18 @@ export default function ServicesPage() {
                     style={{
                       alignItems: 'center',
                       gap: '3rem',
-                      direction: isEven ? 'rtl' : 'ltr',
                     }}
                   >
                     {/* Image Column */}
-                    <div style={{ position: 'relative', height: '340px', borderRadius: 'var(--radius-md)', overflow: 'hidden', direction: 'ltr' }}>
+                    <div
+                      style={{
+                        position: 'relative',
+                        height: '340px',
+                        borderRadius: 'var(--radius-md)',
+                        overflow: 'hidden',
+                        order: isEven ? 2 : 1,
+                      }}
+                    >
                       <Image
                         src={service.image}
                         alt={`${service.title} in Calgary, Alberta`}
@@ -67,7 +74,7 @@ export default function ServicesPage() {
                     </div>
 
                     {/* Content Column */}
-                    <div style={{ direction: 'ltr' }}>
+                    <div style={{ order: isEven ? 1 : 2 }}>
                       <span className="badge badge-orange" style={{ marginBottom: '0.75rem' }}>
                         Service 0{index + 1}
                       </span>
